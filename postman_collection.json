@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "16df29fc-3abd-43d6-b901-e60258c2c342",
+		"name": "Python Evaluation",
+		"description": "# Python Evaluation\n\nHere is a collection of all endpoints for the Python Evaluation project.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Endpoint",
+			"item": [
+				{
+					"name": "POST Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "john",
+									"description": "Username to login (string).",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123abcqq##",
+									"description": "Password to login (string).",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						},
+						"description": "# Login endpoint POST request.\n\nUser this method in order to generate an access_token for a user, you only need to send an username (string) and password (string), if correct, it will respond back with an access token and user role on a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "john",
+									"description": "Username to logout (string).",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123abcqq##",
+									"description": "Password to logout (string).",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						},
+						"description": "# Login endpoint DELETE request\n\nUse this method in order to delete a user access token, you only need to send the username and password, if valid it will return an empty message and a 200 code response."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users Endpoint",
+			"item": [
+				{
+					"name": "GET Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						},
+						"description": "# Users endpoint GET request.\n\nUse this method in order to retrieve all existing users on the database, with it's current username (string), password (string), role_id (pk/id), access_token (string) and status (boolean), if correct it will return a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "POST Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "lisa",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123abcqq##",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						},
+						"description": "# User endpoint POST method.\n\nUser this method if you want to create a new user on the database, you will need to send username (string), password (string), role_id (pk/id) and status (boolean), if correct you will receive a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "telma",
+									"description": "Update username field.",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123abcqq##",
+									"description": "Update password field.",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "2",
+									"description": "Update role id.",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "False",
+									"description": "Update user status.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1",
+								""
+							]
+						},
+						"description": "# User endpoint PUT method.\n\nUser this method if you want to update a user on the database, you will need to send the id (pk/id) on the url, and username (string), password (string), role_id (pk/id) and status (boolean) on the body, if correct you will receive a 200 code response."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles Endpoint",
+			"item": [
+				{
+					"name": "GET Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles",
+								""
+							]
+						},
+						"description": "# Roles endpoint GET request.\n\nUse this method in order to retrieve all existing roles on the database, with it's current name (string), level (integer), if correct it will return a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "POST Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Staff",
+									"description": "Role name.",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "20",
+									"description": "Role privilege level.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles",
+								""
+							]
+						},
+						"description": "# Roles endpoint POST method.\n\nUser this method if you want to create a new role on the database, you will need to send name (string), level (integer), if correct you will receive a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test",
+									"description": "Update name.",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "30",
+									"description": "Update privilege level.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles",
+								"1",
+								""
+							]
+						},
+						"description": "# Roles endpoint PUT method.\n\nUser this method if you want to update a role on the database, you will need to send the id (pk/id) on the url, and name (string), level (integer) on the body, if correct you will receive a 200 code response."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs Endpoint",
+			"item": [
+				{
+					"name": "GET Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logs/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logs",
+								""
+							]
+						},
+						"description": "# Logs endpoint GET request.\n\nUse this method in order to retrieve all existing logs on the database, with it's current datetime (timestamp), user_id (pk/id), action (string), if correct it will return a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "POST Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "datetime",
+									"value": "2021-10-22T00:00:00Z",
+									"description": "Log datetime (timestamp).",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "User id (pk/integer).",
+									"type": "text"
+								},
+								{
+									"key": "action",
+									"value": "Logged action.",
+									"description": "Log action (string).",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logs/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logs",
+								""
+							]
+						},
+						"description": "# Logs endpoint POST request.\n\nUse this method in order to create a log on the database, you need to send a datetime (timestamp), user_id (pk/id), action (string), if correct it will return a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "Action Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logs/?action=Test+Log+%230",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logs",
+								""
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "Test+Log+%230",
+									"description": "Action to filter (string)."
+								}
+							]
+						},
+						"description": "# Action filter.\n\nUse this method in order to filter logs on the database by action (string), if correct it will return a 200 code response."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

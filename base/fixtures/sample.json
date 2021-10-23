@@ -1,0 +1,94 @@
+[
+  {
+    "model": "base.role",
+    "pk": 1,
+    "fields": {
+      "name": "Admin",
+      "level": 99
+    }
+  },
+  {
+    "model": "base.role",
+    "pk": 2,
+    "fields": {
+      "name": "Consulta",
+      "level": 10
+    }
+  },
+  {
+    "model": "base.user",
+    "pk": 1,
+    "fields": {
+      "username": "john",
+      "password": "plaintext$$123abcqq##",
+      "role_id": 1,
+      "status": true
+    }
+  },
+  {
+    "model": "base.user",
+    "pk": 2,
+    "fields": {
+      "username": "mary",
+      "password": "plaintext$$123abcqq##",
+      "role_id": 2,
+      "status": true
+    }
+  },
+  {
+    "model": "base.user",
+    "pk": 3,
+    "fields": {
+      "username": "louis",
+      "password": "plaintext$$123abcqq##",
+      "role_id": 2,
+      "status": false
+    }
+  },
+  {
+    "model": "base.user",
+    "pk": 4,
+    "fields": {
+      "username": "dan",
+      "password": "plaintext$$123abcqq##",
+      "role_id": 1,
+      "status": false
+    }
+  },
+  {
+    "model": "base.log",
+    "pk": 1,
+    "fields": {
+      "datetime": "2021-10-22T00:00:00Z",
+      "user_id": 1,
+      "action": "Test Log #0"
+    }
+  },
+  {
+    "model": "base.log",
+    "pk": 2,
+    "fields": {
+      "datetime": "2021-10-22T00:05:00Z",
+      "user_id": 2,
+      "action": "Test Log #1"
+    }
+  },
+  {
+    "model": "base.log",
+    "pk": 3,
+    "fields": {
+      "datetime": "2021-10-22T00:30:00Z",
+      "user_id": 3,
+      "action": "Test Log #2"
+    }
+  },
+  {
+    "model": "base.log",
+    "pk": 4,
+    "fields": {
+      "datetime": "2021-10-22T01:00:00Z",
+      "user_id": 4,
+      "action": "Test Log #3"
+    }
+  }
+]
