@@ -25,9 +25,9 @@ def custom_exception_handler(exc, context):
         if response.status_code == 405:
             # Change any 405 status code to 500 status.
             response.status_code = 500
-        #response.data = {
-            #"msg": "Data is incomplete, missing, incorrect, \
-            #incorrect method or a server error has ocurred.",
-        #}
+        response.data = {
+            "msg": "Data is incomplete, missing, incorrect, \
+            incorrect method or a server error has ocurred.",
+        }
 
     return response

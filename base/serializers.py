@@ -6,17 +6,16 @@ https://www.django-rest-framework.org/api-guide/serializers/
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from rest_framework.authtoken.models import Token
-from rest_framework.serializers import (CharField, HyperlinkedModelSerializer,
-                                        PrimaryKeyRelatedField,
+from rest_framework.serializers import (CharField, ModelSerializer,
                                         SerializerMethodField)
 
 from .models import Log, Role
 
 
-class RoleSerializer(HyperlinkedModelSerializer):
+class RoleSerializer(ModelSerializer):
     """
     Role model serializer.
-    https://www.django-rest-framework.org/api-guide/serializers/#hyperlinkedmodelserializer
+    https://www.django-rest-framework.org/api-guide/serializers/#modelserializer
     """
     class Meta:
         """
@@ -31,16 +30,12 @@ class RoleSerializer(HyperlinkedModelSerializer):
             'level'
         ]
 
-class UserSerializer(HyperlinkedModelSerializer):
+class UserSerializer(ModelSerializer):
     """
     User model serializer.
-    https://www.django-rest-framework.org/api-guide/serializers/#hyperlinkedmodelserializer
+    https://www.django-rest-framework.org/api-guide/serializers/#modelserializer
     """
     # Show any role_id associated to user using pk field.
-    role_id = PrimaryKeyRelatedField(
-        # Set serializer queryset.
-        queryset=Role.objects.all()
-    )
     password = CharField(
         required=True,
         style={
@@ -96,18 +91,11 @@ class UserSerializer(HyperlinkedModelSerializer):
             'status'
         ]
 
-class LogSerializer(HyperlinkedModelSerializer):
+class LogSerializer(ModelSerializer):
     """
     Role model serializer.
-    https://www.django-rest-framework.org/api-guide/serializers/#hyperlinkedmodelserializer
+    https://www.django-rest-framework.org/api-guide/serializers/#modelserializer
     """
-    # Show any user_id associated to log using pk field.
-    user_id = PrimaryKeyRelatedField(
-        # Set serializer queryset and use prefetch to optimize query.
-        queryset=get_user_model().objects.prefetch_related(
-            "role_id"
-        )
-    )
 
     class Meta:
         """

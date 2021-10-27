@@ -14,7 +14,7 @@ from .models import Log, Role
 from .serializers import LogSerializer, RoleSerializer, UserSerializer
 
 
-class MethodResponse():
+class BaseMixin():
     """
     Customize view method responses.
     """
@@ -42,7 +42,7 @@ class MethodResponse():
         response.status_code = 200
         return response
 
-class RoleViewSet(MethodResponse, ModelViewSet):
+class RoleViewSet(BaseMixin, ModelViewSet):
     """
     API endpoint that allows roles to be viewed or edited.
     """
@@ -58,7 +58,7 @@ class RoleViewSet(MethodResponse, ModelViewSet):
         'delete'
     ]
 
-class UserViewSet(MethodResponse, ModelViewSet):
+class UserViewSet(BaseMixin, ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -76,7 +76,7 @@ class UserViewSet(MethodResponse, ModelViewSet):
         'delete'
     ]
 
-class LogViewSet(MethodResponse, ModelViewSet):
+class LogViewSet(BaseMixin, ModelViewSet):
     """
     API endpoint that allows logs to be viewed or edited.
     """

@@ -227,6 +227,36 @@
 						"description": "# User endpoint PUT method.\n\nUser this method if you want to update a user on the database, you will need to send the id (pk/id) on the url, and username (string), password (string), role_id (pk/id) and status (boolean) on the body, if correct you will receive a 200 code response."
 					},
 					"response": []
+				},
+				{
+					"name": "DELETE Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1",
+								""
+							]
+						},
+						"description": "# User endpoint PUT method.\n\nUser this method if you want to update a user on the database, you will need to send the id (pk/id) on the url, and username (string), password (string), role_id (pk/id) and status (boolean) on the body, if correct you will receive a 200 code response."
+					},
+					"response": []
 				}
 			]
 		},
@@ -321,6 +351,36 @@
 									"type": "text"
 								}
 							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/roles/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"roles",
+								"1",
+								""
+							]
+						},
+						"description": "# Roles endpoint PUT method.\n\nUser this method if you want to update a role on the database, you will need to send the id (pk/id) on the url, and name (string), level (integer) on the body, if correct you will receive a 200 code response."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/roles/1/",

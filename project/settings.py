@@ -58,15 +58,22 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'db_name',
+        #'USER': 'db_user',
+        #'PASSWORD': 'db_password',
+        #'HOST': '127.0.0.1',
+        #'PORT': '5432',
+    #},
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_name',
-        'USER': 'db_user',
-        'PASSWORD': 'db_password',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -138,6 +145,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_FILTER_BACKENDS': [
+        # Add generic django-filter backend.
+        # https://django-filter.readthedocs.io/en/stable/guide/rest_framework.html
         'django_filters.rest_framework.DjangoFilterBackend'
     ],
     'EXCEPTION_HANDLER': 'base.utils.custom_exception_handler'
